@@ -35,9 +35,9 @@ export const Collections: React.FC<CollectionsProps> = ({ onSelectCategory }) =>
     },
     {
       id: 'perfumes',
-      name: 'French Perfumes',
-      tag: 'Signature Scents',
-      desc: 'Long-lasting, captivating fine fragrances featuring royal notes of jasmine, warm amber, and bourbon vanilla.',
+      name: 'Perfumes & Oils',
+      tag: 'Eau de Parfum & Attar',
+      desc: 'Captivating French fragrances and alcohol-free concentrated perfume oils featuring royal jasmine, golden oud, and bourbon vanilla.',
       image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80',
       icon: <Flame size={20} color="var(--color-champagne-dark)" />
     },
@@ -51,17 +51,17 @@ export const Collections: React.FC<CollectionsProps> = ({ onSelectCategory }) =>
     },
     {
       id: 'hijabs',
-      name: 'Bespoke Hijabs',
-      tag: 'Modal & Chiffon',
-      desc: 'Breathable premium modal, textured chiffon, and silk scarves in soft earthy luxury hues that stay in place.',
-      image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=800&q=80',
+      name: 'Hijabs & Hair Scarves',
+      tag: 'Silk, Modal & Chiffon',
+      desc: 'Breathable modal silks, textured chiffon, and 100% pure mulberry silk hair wraps designed to protect hair and elevate styling.',
+      image: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80',
       icon: <Layers size={20} color="var(--color-champagne-dark)" />
     },
     {
       id: 'skincare',
-      name: 'Glow Skincare',
-      tag: 'Organic Rituals',
-      desc: 'Gentle organic rosehip radiance oils and Bulgarian rosewater mists to nurture your skin’s natural barrier.',
+      name: 'Skincare & CeraVe',
+      tag: 'Ceramides & Botanicals',
+      desc: 'Authentic CeraVe dermatologist cleansers and creams paired with organic rosehip oils to nourish and restore your skin barrier.',
       image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
       icon: <Droplets size={20} color="var(--color-champagne-dark)" />
     },

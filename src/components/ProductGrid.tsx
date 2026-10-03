@@ -19,12 +19,12 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
 }) => {
   const filterTabs: { id: ProductCategory; label: string }[] = [
     { id: 'all', label: 'All Products' },
-    { id: 'jewelry', label: 'Jewelry' },
-    { id: 'perfumes', label: 'Perfumes' },
+    { id: 'jewelry', label: 'Fine Jewelry' },
+    { id: 'perfumes', label: 'Perfumes & Oils' },
     { id: 'lipgloss', label: 'Lip Gloss' },
-    { id: 'hijabs', label: 'Hijabs' },
-    { id: 'skincare', label: 'Skincare' },
-    { id: 'packages', label: 'Packages' }
+    { id: 'hijabs', label: 'Hijabs & Scarves' },
+    { id: 'skincare', label: 'CeraVe & Skincare' },
+    { id: 'packages', label: 'Gift Sets' }
   ];
 
   const filteredProducts = activeFilter === 'all'

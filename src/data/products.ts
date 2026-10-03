@@ -69,6 +69,32 @@ export const PRODUCTS: Product[] = [
     image: 'https://images.unsplash.com/photo-1594035910387-fea081ae7aeb?auto=format&fit=crop&w=800&q=80',
     description: 'Creamy sandalwood layered with dewy Damascus rose petals for all-day captivating silage.'
   },
+  {
+    id: 'perf-3',
+    name: 'Golden Oud Royal Concentrated Perfume Oil (12ml)',
+    category: 'perfumes',
+    categoryLabel: 'Luxury Perfume Oils',
+    price: 26000,
+    oldPrice: 32000,
+    discount: '18% OFF',
+    rating: 5,
+    reviews: 54,
+    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80',
+    description: 'Pure alcohol-free concentrated oil perfume blending Cambodian agarwood, Madagascar vanilla, and warm saffron for 24hr+ longevity.'
+  },
+  {
+    id: 'perf-4',
+    name: 'Tahitian Vanilla & White Musk Perfume Oil Roll-On',
+    category: 'perfumes',
+    categoryLabel: 'Luxury Perfume Oils',
+    price: 18500,
+    oldPrice: 24000,
+    discount: '23% OFF',
+    rating: 4.9,
+    reviews: 38,
+    image: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=800&q=80',
+    description: 'Silky rollerball perfume elixir featuring powdery Egyptian white musk, warm coconut nectar, and caramelized Tahitian vanilla.'
+  },
 
   // Lip Gloss
   {
@@ -98,7 +124,7 @@ export const PRODUCTS: Product[] = [
     description: 'Deeply conditioning non-sticky lip elixir delivering intense moisture and a natural radiant tint.'
   },
 
-  // Hijabs
+  // Hijabs & Hair Scarves
   {
     id: 'hijab-1',
     name: 'Luxe Modal Silk Scarf - Champagne Rose',
@@ -125,13 +151,39 @@ export const PRODUCTS: Product[] = [
     image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=80',
     description: 'Flowy, non-opaque textured chiffon scarf in a flattering neutral mocha shade for refined styling.'
   },
+  {
+    id: 'hijab-3',
+    name: 'Mulberry Silk Satin Hair Scarf - Emerald & Gold Flora',
+    category: 'hijabs',
+    categoryLabel: 'Luxury Hair Scarves',
+    price: 16500,
+    oldPrice: 22000,
+    discount: '25% OFF',
+    rating: 5,
+    reviews: 29,
+    image: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80',
+    description: '100% pure mulberry silk square hair scarf. Protects hair follicles from friction, locks in natural moisture, and styles effortlessly.'
+  },
+  {
+    id: 'hijab-4',
+    name: 'Monogram Silk Jacquard Ribbon Hair Wrap',
+    category: 'hijabs',
+    categoryLabel: 'Luxury Hair Scarves',
+    price: 13500,
+    oldPrice: null,
+    discount: null,
+    rating: 4.9,
+    reviews: 18,
+    image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+    description: 'Versatile glossy twill ribbon scarf for chic ponytails, hair buns, neck ties, or luxury handbag adornment.'
+  },
 
-  // Skincare
+  // Skincare (CeraVe & Botanicals)
   {
     id: 'skin-1',
     name: 'Aura Radiance Rosehip & C Face Oil',
     category: 'skincare',
-    categoryLabel: 'Skincare',
+    categoryLabel: 'Botanical Skincare',
     price: 25000,
     oldPrice: 32000,
     discount: '22% OFF',
@@ -144,7 +196,7 @@ export const PRODUCTS: Product[] = [
     id: 'skin-2',
     name: 'Botanical Rosewater Hydrating Mist',
     category: 'skincare',
-    categoryLabel: 'Skincare',
+    categoryLabel: 'Botanical Skincare',
     price: 14000,
     oldPrice: null,
     discount: null,
@@ -152,6 +204,45 @@ export const PRODUCTS: Product[] = [
     reviews: 27,
     image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
     description: '100% pure organic Bulgarian rosewater mist that instantly calms redness, balances pH, and refreshes skin.'
+  },
+  {
+    id: 'skin-3',
+    name: 'CeraVe Hydrating Facial Cleanser (473ml)',
+    category: 'skincare',
+    categoryLabel: 'Dermatologist Skincare',
+    price: 22000,
+    oldPrice: 27000,
+    discount: '18% OFF',
+    rating: 5,
+    reviews: 84,
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
+    description: 'Authentic CeraVe daily hydrating wash with 3 essential ceramides and hyaluronic acid to cleanse without disrupting skin barrier.'
+  },
+  {
+    id: 'skin-4',
+    name: 'CeraVe Moisturizing Cream with Ceramides (454g)',
+    category: 'skincare',
+    categoryLabel: 'Dermatologist Skincare',
+    price: 28000,
+    oldPrice: 35000,
+    discount: '20% OFF',
+    rating: 4.9,
+    reviews: 67,
+    image: 'https://images.unsplash.com/photo-1608248597359-54d6a457497d?auto=format&fit=crop&w=800&q=80',
+    description: 'Rich, non-comedogenic barrier restoration cream with patented MVE delivery technology for all-day deep hydration.'
+  },
+  {
+    id: 'skin-5',
+    name: 'CeraVe Daily Moisturizing Lotion (355ml)',
+    category: 'skincare',
+    categoryLabel: 'Dermatologist Skincare',
+    price: 24000,
+    oldPrice: null,
+    discount: null,
+    rating: 4.8,
+    reviews: 45,
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+    description: 'Lightweight, oil-free daily moisturizer formulated with ceramides & hyaluronic acid for silky smooth, hydrated skin.'
   },
 
   // Packages

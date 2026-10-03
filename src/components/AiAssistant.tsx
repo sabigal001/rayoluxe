@@ -34,14 +34,14 @@ export const AiAssistant: React.FC = () => {
   const getKnowledgeResponse = (text: string): string => {
     const lower = text.toLowerCase();
 
-    if (lower.includes('what products') || lower.includes('sell') || lower.includes('items') || lower.includes('collection')) {
+    if (lower.includes('what products') || lower.includes('sell') || lower.includes('items') || lower.includes('collection') || lower.includes('cerave') || lower.includes('scarf') || lower.includes('oil')) {
       return `At Rayo Luxe, we curate exceptional everyday luxuries:
 • Fine Jewelry: Non-tarnish 18k gold chains, rings & freshwater pearl pendants
-• French Perfumes: Royal jasmine, golden amber & bourbon vanilla eau de parfum
+• French Perfumes & Oils: Royal jasmine, Golden Oud royal perfume oil (12ml) & Tahitian Vanilla musk roll-on
 • Lip Care: Non-sticky cushion glosses & botanical lip oils
-• Bespoke Hijabs: Breathable modal silk and flowy textured chiffon
-• Glow Skincare: Cold-pressed rosehip seed oils & organic Bulgarian rosewater
-• Gift Hampers: Pre-curated unboxing sets in satin-tied gift boxes`;
+• Hijabs & Hair Scarves: Modal silk scarves & 100% pure Mulberry silk hair wraps
+• Skincare & CeraVe: Authentic CeraVe Hydrating Cleanser, Moisturizing Cream & Lotion, alongside organic rosehip face oils
+• Curated Gift Sets: Pre-curated unboxing hampers in satin-tied gift boxes`;
     }
 
     if (lower.includes('how do i place an order') || lower.includes('order') || lower.includes('purchase')) {

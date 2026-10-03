@@ -1,6 +1,8 @@
 # Rayo Luxe — Luxury Beauty & Lifestyle
 
-> **Handcrafted Fine Jewelry • Artisanal French Perfumes • Botanical Lip Oils • Bespoke Modal Hijabs • Curated Gift Hampers**
+> **Handcrafted Fine Jewelry • Artisanal French Perfumes & Oils • Botanical Lip Oils • Pure Silk Hair Scarves • CeraVe Skincare • Curated Gift Hampers**
+
+🌐 **Live Website**: [https://rayoluxe.vercel.app/](https://rayoluxe.vercel.app/)
 
 Welcome to **Rayo Luxe**, an ultra-premium, mobile-first e-commerce web application meticulously designed for high-end lifestyle products. Built with modern TypeScript, React, Vite, and a bespoke liquid frosted glass design system.
 
@@ -30,7 +32,7 @@ Welcome to **Rayo Luxe**, an ultra-premium, mobile-first e-commerce web applicat
   - All catalog products are priced in Nigerian Naira (₦) with localized thousand separators and discount percentages.
 
 - **Interactive Shopping & Express Checkout**:
-  - Slide-out Cart Drawer with dynamic quantity adjustments and coupon code validation (`RAYOLUXE15` for 15% off).
+  - Slide-out Cart Drawer with dynamic quantity adjustments and coupon code validation (`RAYOLUXE10` for 10% off).
   - WhatsApp Express Checkout modal automatically generates formatted order dispatches with customer delivery details.
 
 - **Curated Collections & Filterable Product Grid**:
