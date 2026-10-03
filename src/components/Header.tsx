@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   scrolled
 }) => {
   return (
-    <>
+    <div className="header-master-wrapper">
       {/* Top Announcement Bar (Infinite Continuous Marquee) */}
       <div className="announcement-bar">
         <div className="announcement-track">
@@ -56,8 +56,8 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* CENTER: Brand Logo */}
-          <div style={{ textAlign: 'center', flex: 1 }}>
-            <a href="#hero" style={{ display: 'inline-block' }}>
+          <div style={{ textAlign: 'center', flex: 1, overflow: 'hidden' }}>
+            <a href="#hero" className="brand-link">
               <span className="brand-title">RAYO LUXE</span>
               <span className="brand-sub">BEAUTY & LIFESTYLE</span>
             </a>
@@ -87,6 +87,6 @@ export const Header: React.FC<HeaderProps> = ({
 
         </div>
       </header>
-    </>
+    </div>
   );
 };
