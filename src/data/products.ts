@@ -44,6 +44,19 @@ export const PRODUCTS: Product[] = [
 
   // Perfumes
   {
+    id: 'perf-matelot',
+    name: 'Matelot Eau de Parfum (with Keepsake Pouch)',
+    category: 'perfumes',
+    categoryLabel: 'French Perfumes',
+    price: 35000,
+    oldPrice: 42000,
+    discount: '17% OFF',
+    rating: 5,
+    reviews: 38,
+    image: '/assets/images/product1.png',
+    description: 'Crisp coastal floral French Eau de Parfum with amber and citrus notes. Comes with the signature nautical striped drawstring keepsake pouch.'
+  },
+  {
     id: 'perf-1',
     name: 'Jasmin D\'Or Eau de Parfum (50ml)',
     category: 'perfumes',
