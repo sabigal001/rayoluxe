@@ -1,18 +1,22 @@
 import React from 'react';
-import { Menu, Search, ShoppingBag } from 'lucide-react';
+import { Menu, Search, ShoppingBag, Heart } from 'lucide-react';
 
 interface HeaderProps {
   cartCount: number;
+  wishlistCount: number;
   onOpenMenu: () => void;
   onOpenCart: () => void;
+  onOpenWishlist: () => void;
   onOpenSearch: () => void;
   scrolled: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   cartCount,
+  wishlistCount,
   onOpenMenu,
   onOpenCart,
+  onOpenWishlist,
   onOpenSearch,
   scrolled
 }) => {
@@ -63,14 +67,25 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           </div>
 
-          {/* RIGHT: Search & Cart Bag */}
-          <div style={{ width: 80, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 6 }}>
+          {/* RIGHT: Search, Wishlist & Cart Bag */}
+          <div style={{ width: 110, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 4 }}>
             <button 
               className="icon-btn" 
               onClick={onOpenSearch}
               aria-label="Search Catalog"
             >
-              <Search size={20} strokeWidth={1.75} />
+              <Search size={19} strokeWidth={1.75} />
+            </button>
+
+            <button 
+              className="icon-btn" 
+              onClick={onOpenWishlist}
+              aria-label="View Saved Wishlist"
+            >
+              <Heart size={19} strokeWidth={1.75} fill={wishlistCount > 0 ? "var(--color-rose)" : "none"} color={wishlistCount > 0 ? "var(--color-rose)" : "currentColor"} />
+              {wishlistCount > 0 && (
+                <span className="cart-badge" style={{ background: 'var(--color-rose)' }}>{wishlistCount}</span>
+              )}
             </button>
 
             <button 
@@ -78,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={onOpenCart}
               aria-label="View Shopping Bag"
             >
-              <ShoppingBag size={20} strokeWidth={1.75} />
+              <ShoppingBag size={19} strokeWidth={1.75} />
               {cartCount > 0 && (
                 <span className="cart-badge">{cartCount}</span>
               )}

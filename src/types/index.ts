@@ -19,6 +19,14 @@ export interface Product {
   reviews: number;
   image: string;
   description: string;
+  inStock?: number;
+  badge?: string;
+  specs?: string[];
+  notes?: {
+    top?: string;
+    heart?: string;
+    base?: string;
+  };
 }
 
 export interface CartItem {
@@ -47,4 +55,25 @@ export interface AiChatMessage {
   sender: 'user' | 'bot';
   text: string;
   timestamp: string;
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  city: string;
+  rating: number;
+  date: string;
+  productName: string;
+  review: string;
+  verified: boolean;
+  avatar: string;
+}
+
+export interface TrackingMilestone {
+  step: number;
+  title: string;
+  description: string;
+  time: string;
+  completed: boolean;
+  current: boolean;
 }

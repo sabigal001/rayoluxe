@@ -2,29 +2,39 @@ import React, { useState, useEffect } from 'react';
 import { PRODUCTS } from './data/products';
 import { Product, ProductCategory, CartItem, ToastNotification, OrderDetails } from './types';
 
-// Components
+// Core Components
 import { Header } from './components/Header';
-// CategoryNav removed per user request
 import { SideMenu } from './components/SideMenu';
 import { Hero } from './components/Hero';
 import { Collections } from './components/Collections';
 import { ProductGrid } from './components/ProductGrid';
 import { ReadyToPurchase } from './components/ReadyToPurchase';
 import { WhyChooseUs } from './components/WhyChooseUs';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { Discounts } from './components/Discounts';
 import { AboutUs } from './components/AboutUs';
 import { ContactSection } from './components/ContactSection';
-import { CartDrawer } from './components/CartDrawer';
-import { CheckoutModal } from './components/CheckoutModal';
-import { SearchModal } from './components/SearchModal';
-import { AiAssistant } from './components/AiAssistant';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { Footer } from './components/Footer';
 
+// Drawers & Modals
+import { CartDrawer } from './components/CartDrawer';
+import { WishlistDrawer } from './components/WishlistDrawer';
+import { ProductDetailModal } from './components/ProductDetailModal';
+import { CheckoutModal } from './components/CheckoutModal';
+import { SearchModal } from './components/SearchModal';
+import { OrderTrackingModal } from './components/OrderTrackingModal';
+import { VipClubModal } from './components/VipClubModal';
+
+// Floating Widgets
+import { AiAssistant } from './components/AiAssistant';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+
 const CART_STORAGE_KEY = 'rayo_luxe_cart_react_v1';
+const WISHLIST_STORAGE_KEY = 'rayo_luxe_wishlist_react_v1';
+const VIP_SEEN_KEY = 'rayo_luxe_vip_seen_v1';
 
 export const App: React.FC = () => {
-  // State
+  // Cart State (Persisted in localStorage)
   const [cart, setCart] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem(CART_STORAGE_KEY);
@@ -34,31 +44,69 @@ export const App: React.FC = () => {
     }
   });
 
+  // Wishlist State (Persisted in localStorage)
+  const [wishlist, setWishlist] = useState<Product[]>(() => {
+    try {
+      const saved = localStorage.getItem(WISHLIST_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Navigation & Modal States
   const [activeCategory, setActiveCategory] = useState<ProductCategory>('all');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [isTrackingOpen, setIsTrackingOpen] = useState(false);
+  const [isVipClubOpen, setIsVipClubOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  // Discount & Toasts
   const [discountPercent, setDiscountPercent] = useState(0);
   const [toasts, setToasts] = useState<ToastNotification[]>([]);
   const [scrolled, setScrolled] = useState(false);
 
-  // Sync cart to localStorage
+  // Sync Cart to localStorage
   useEffect(() => {
     try {
       localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
     } catch (err) {
-      console.error('Storage error:', err);
+      console.error('Cart storage error:', err);
     }
   }, [cart]);
 
-  // Window scroll listener
+  // Sync Wishlist to localStorage
+  useEffect(() => {
+    try {
+      localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishlist));
+    } catch (err) {
+      console.error('Wishlist storage error:', err);
+    }
+  }, [wishlist]);
+
+  // Scroll Listener
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Timed VIP Club invitation popup (shows once per session)
+  useEffect(() => {
+    const seen = sessionStorage.getItem(VIP_SEEN_KEY);
+    if (!seen) {
+      const timer = setTimeout(() => {
+        setIsVipClubOpen(true);
+        sessionStorage.setItem(VIP_SEEN_KEY, 'true');
+      }, 5500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Toast Helper
@@ -113,13 +161,44 @@ export const App: React.FC = () => {
     }
   };
 
+  // Wishlist Operations
+  const isProductWishlisted = (id: string) => {
+    return wishlist.some(item => item.id === id);
+  };
+
+  const handleToggleWishlist = (product: Product) => {
+    const exists = isProductWishlisted(product.id);
+    if (exists) {
+      setWishlist(prev => prev.filter(item => item.id !== product.id));
+      showToast(`Removed "${product.name}" from your wishlist.`, 'info');
+    } else {
+      setWishlist(prev => [...prev, product]);
+      showToast(`Saved "${product.name}" to your wishlist!`, 'success');
+    }
+  };
+
+  const handleRemoveFromWishlist = (product: Product) => {
+    setWishlist(prev => prev.filter(item => item.id !== product.id));
+    showToast(`Removed "${product.name}" from your wishlist.`, 'info');
+  };
+
+  const handleClearWishlist = () => {
+    setWishlist([]);
+    showToast('Your wishlist has been cleared.', 'info');
+  };
+
+  // Coupon application
   const handleApplyCoupon = (code: string) => {
-    if (code.toUpperCase().trim() === 'RAYOLUXE15') {
+    const normalized = code.toUpperCase().trim();
+    if (normalized === 'RAYOLUXE15') {
       setDiscountPercent(0.15);
       showToast('Promo code RAYOLUXE15 applied! (15% OFF)', 'success');
+    } else if (normalized === 'RAYOVIP10') {
+      setDiscountPercent(0.10);
+      showToast('VIP Voucher RAYOVIP10 applied! (10% OFF)', 'success');
     } else {
       setDiscountPercent(0);
-      showToast('Invalid promo code. Use RAYOLUXE15 for 15% off.', 'info');
+      showToast('Invalid promo code. Use RAYOLUXE15 or RAYOVIP10.', 'info');
     }
   };
 
@@ -139,14 +218,14 @@ export const App: React.FC = () => {
     text += `------------------------------------\n`;
     text += `*Subtotal:* ${formatNaira(subtotal)}\n`;
     if (discountPercent > 0) {
-      text += `*Discount (15%):* -${formatNaira(discountAmount)}\n`;
+      text += `*Discount:* -${formatNaira(discountAmount)} (${discountPercent * 100}%)\n`;
     }
-    text += `*Delivery:* ${shipping === 0 ? 'FREE' : formatNaira(shipping)}\n`;
-    text += `*Grand Total:* ${formatNaira(total)}\n\n`;
-    text += `*Delivery Details:*\n`;
+    text += `*VIP Shipping:* ${shipping === 0 ? 'FREE (Orders ₦40,000+)' : formatNaira(shipping)}\n`;
+    text += `*Total Order Value:* ${formatNaira(total)}\n\n`;
+    text += `*Customer Details:*\n`;
     text += `Name: ${details.name}\n`;
     text += `Phone: ${details.phone}\n`;
-    text += `Address: ${details.address}\n`;
+    text += `Delivery Address: ${details.address}\n`;
     text += `Payment Method: ${details.payment}\n\n`;
     text += `Please confirm dispatch. Thank you!`;
 
@@ -171,6 +250,7 @@ export const App: React.FC = () => {
   };
 
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const wishlistCount = wishlist.length;
 
   return (
     <div className="app-layout">
@@ -188,13 +268,13 @@ export const App: React.FC = () => {
       {/* Header */}
       <Header 
         cartCount={cartCount}
+        wishlistCount={wishlistCount}
         onOpenMenu={() => setIsMenuOpen(true)}
         onOpenCart={() => setIsCartOpen(true)}
+        onOpenWishlist={() => setIsWishlistOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
         scrolled={scrolled}
       />
-
-      {/* CategoryNav removed — user requested removal of category bar below header */}
 
       {/* Hamburger Side Navigation */}
       <SideMenu 
@@ -202,6 +282,10 @@ export const App: React.FC = () => {
         onClose={() => setIsMenuOpen(false)}
         onOpenCart={() => setIsCartOpen(true)}
         cartCount={cartCount}
+        wishlistCount={wishlistCount}
+        onOpenWishlist={() => setIsWishlistOpen(true)}
+        onOpenTracking={() => setIsTrackingOpen(true)}
+        onOpenVipClub={() => setIsVipClubOpen(true)}
         onNavigate={(id) => {
           setIsMenuOpen(false);
           scrollToSection(id);
@@ -229,32 +313,59 @@ export const App: React.FC = () => {
           products={PRODUCTS}
           activeFilter={activeCategory}
           onFilterChange={(cat) => setActiveCategory(cat)}
-          onAddToCart={handleAddToCart}
+          onAddToCart={(p) => handleAddToCart(p, 1)}
           onBuyNow={handleBuyNow}
+          onQuickView={(p) => setSelectedProduct(p)}
+          isWishlisted={isProductWishlisted}
+          onToggleWishlist={handleToggleWishlist}
         />
 
         {/* Section 4: Ready to Purchase */}
         <ReadyToPurchase 
-          onAddToCart={handleAddToCart}
+          onAddToCart={(p) => handleAddToCart(p, 1)}
           onBuyNow={handleBuyNow}
         />
 
-        {/* Section 5: What You Should Expect */}
+        {/* Section 5: What You Should Expect (4 Core Pillars) */}
         <WhyChooseUs />
 
-        {/* Section 6: Discounts */}
+        {/* Section 6: Verified Clientele Testimonials Carousel */}
+        <TestimonialsSection />
+
+        {/* Section 7: Discounts & Promotions */}
         <Discounts 
           onShopDiscounted={() => scrollToSection('featured-products')}
           onApplyCoupon={handleApplyCoupon}
           onShowToast={showToast}
         />
 
-        {/* About Us */}
+        {/* Section 8: About Us Heritage */}
         <AboutUs />
 
-        {/* Contact Us */}
+        {/* Section 9: Contact Section */}
         <ContactSection onShowToast={showToast} />
       </main>
+
+      {/* Product Detail / Quick View Modal */}
+      <ProductDetailModal 
+        product={selectedProduct}
+        isOpen={selectedProduct !== null}
+        onClose={() => setSelectedProduct(null)}
+        onAddToCart={handleAddToCart}
+        onBuyNow={handleBuyNow}
+        isWishlisted={selectedProduct ? isProductWishlisted(selectedProduct.id) : false}
+        onToggleWishlist={handleToggleWishlist}
+      />
+
+      {/* Wishlist Drawer */}
+      <WishlistDrawer 
+        isOpen={isWishlistOpen}
+        onClose={() => setIsWishlistOpen(false)}
+        items={wishlist}
+        onRemoveItem={handleRemoveFromWishlist}
+        onAddToCart={(p) => handleAddToCart(p, 1)}
+        onClearWishlist={handleClearWishlist}
+      />
 
       {/* Cart Drawer */}
       <CartDrawer 
@@ -285,7 +396,21 @@ export const App: React.FC = () => {
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         products={PRODUCTS}
-        onAddToCart={handleAddToCart}
+        onAddToCart={(p) => handleAddToCart(p, 1)}
+      />
+
+      {/* Live Order Tracking Modal */}
+      <OrderTrackingModal 
+        isOpen={isTrackingOpen}
+        onClose={() => setIsTrackingOpen(false)}
+      />
+
+      {/* VIP Club Invitation Modal */}
+      <VipClubModal 
+        isOpen={isVipClubOpen}
+        onClose={() => setIsVipClubOpen(false)}
+        onApplyCoupon={handleApplyCoupon}
+        onShowToast={showToast}
       />
 
       {/* Floating Concierge AI Assistant */}
@@ -302,6 +427,9 @@ export const App: React.FC = () => {
         }}
         onNavigate={(id) => scrollToSection(id)}
         onOpenCart={() => setIsCartOpen(true)}
+        onOpenWishlist={() => setIsWishlistOpen(true)}
+        onOpenTracking={() => setIsTrackingOpen(true)}
+        onOpenVipClub={() => setIsVipClubOpen(true)}
       />
 
     </div>

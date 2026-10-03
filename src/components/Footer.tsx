@@ -4,12 +4,18 @@ interface FooterProps {
   onSelectCategory: (cat: ProductCategory) => void;
   onNavigate: (sectionId: string) => void;
   onOpenCart: () => void;
+  onOpenWishlist: () => void;
+  onOpenTracking: () => void;
+  onOpenVipClub: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onSelectCategory,
   onNavigate,
-  onOpenCart
+  onOpenCart,
+  onOpenWishlist,
+  onOpenTracking,
+  onOpenVipClub
 }) => {
   return (
     <footer style={{
@@ -120,9 +126,12 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Customer Column */}
           <div>
             <h4 className="font-serif" style={{ fontSize: '1.15rem', color: '#FFF', marginBottom: 18, letterSpacing: '0.04em' }}>
-              Customer
+              Customer Care
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10, fontSize: '0.88rem' }}>
+              <li><button onClick={onOpenWishlist} style={{ color: '#BDB3A9' }}>My Wishlist</button></li>
+              <li><button onClick={onOpenTracking} style={{ color: '#BDB3A9' }}>Track Your Order</button></li>
+              <li><button onClick={onOpenVipClub} style={{ color: '#BDB3A9' }}>Join VIP Circle (10% OFF)</button></li>
               <li><button onClick={() => onNavigate('contact')} style={{ color: '#BDB3A9' }}>Contact Us</button></li>
               <li><button onClick={() => onNavigate('ready-to-purchase')} style={{ color: '#BDB3A9' }}>Ready to Purchase</button></li>
               <li><button onClick={() => onNavigate('discounts')} style={{ color: '#BDB3A9' }}>Discounts & Offers</button></li>

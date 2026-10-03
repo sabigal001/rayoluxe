@@ -39,6 +39,21 @@ Welcome to **Rayo Luxe**, an ultra-premium, mobile-first e-commerce web applicat
   - Filter by Fine Jewelry, French Perfumes, Lip Care, Bespoke Hijabs, Skincare, and Deluxe Gift Hampers.
   - Real-time catalog search modal with instant suggestions and add-to-cart actions.
 
+- **Product Quick View / Detail Modal**:
+  - Rich image zoom preview, stock scarcity badges (*"Only 3 left in stock"*), material specifications, and scent profiles (top, heart, and base notes).
+
+- **Wishlist & Favorites System**:
+  - Save favorite items via heart toggles across cards and quick view modals. Persisted in `localStorage` with a dedicated slide-out Wishlist Drawer to move items to bag.
+
+- **Verified Clientele Testimonials Carousel**:
+  - Social proof reviews from verified buyers across Lagos, Abuja, and Port Harcourt with 5-star ratings and purchase tags.
+
+- **Live Order Tracking Simulation**:
+  - Track orders in real-time with an interactive milestone timeline (*Confirmed → Packaged → Dispatched via GIG/Speedaf → Delivered*) plus direct WhatsApp courier support.
+
+- **VIP Club 10% Voucher Modal**:
+  - Exclusive invitation modal unlocking code `RAYOVIP10` with instant clipboard copy and auto-apply.
+
 ---
 
 ## 🛠️ Tech Stack

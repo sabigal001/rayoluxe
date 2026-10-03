@@ -13,7 +13,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 28,
     image: 'https://images.unsplash.com/photo-1515562141589-67f0d727b750?auto=format&fit=crop&w=800&q=80',
-    description: 'Delicate 18k gold chain with a lustrous freshwater pearl drop. Non-tarnish, water-resistant, and hypoallergenic.'
+    description: 'Delicate 18k gold chain with a lustrous freshwater pearl drop. Non-tarnish, water-resistant, and hypoallergenic.',
+    inStock: 4,
+    badge: 'Bestseller',
+    specs: ['18K Solid Gold PVD Plating', 'Genuine Freshwater Baroque Pearl', 'Length: 45cm + 5cm extender', 'Non-tarnish & 100% Waterproof']
   },
   {
     id: 'jewel-2',
@@ -26,7 +29,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 19,
     image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80',
-    description: 'Set of 3 stackable textured 18k gold-plated bands. Designed for effortless everyday styling.'
+    description: 'Set of 3 stackable textured 18k gold-plated bands. Designed for effortless everyday styling.',
+    inStock: 6,
+    badge: 'Stackable Set',
+    specs: ['18K Yellow Gold Plating', 'Smooth & Hammered Finish Bands', 'Comfort Fit Interior', 'Tarnish-Free Guarantee']
   },
   {
     id: 'jewel-3',
@@ -39,7 +45,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviews: 14,
     image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
-    description: 'Sparkling cubic zirconia crystal drop huggie earrings crafted with a secure, comfortable latch.'
+    description: 'Sparkling cubic zirconia crystal drop huggie earrings crafted with a secure, comfortable latch.',
+    inStock: 5,
+    badge: 'Trending',
+    specs: ['AAA+ Brilliant Cubic Zirconia', 'Secure Click-Latch Closure', 'Nickel & Lead-Free Titanium Core', 'Ultra Lightweight']
   },
 
   // Perfumes
@@ -54,7 +63,15 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 38,
     image: '/assets/images/product1.png',
-    description: 'Crisp coastal floral French Eau de Parfum with amber and citrus notes. Comes with the signature nautical striped drawstring keepsake pouch.'
+    description: 'Crisp coastal floral French Eau de Parfum with amber and citrus notes. Comes with the signature nautical striped drawstring keepsake pouch.',
+    inStock: 3,
+    badge: 'Exclusive Drop',
+    specs: ['Concentration: Eau de Parfum', 'Includes Signature Keepsake Pouch', 'Volume: 50ml Spray Flacon', 'Lasting Power: 18+ Hours'],
+    notes: {
+      top: 'French Bergamot, Neroli & Crisp Sea Breeze',
+      heart: 'Coastal Dewy Jasmine & Pink Peony',
+      base: 'Sunlit Amber, White Musk & Blond Cedar'
+    }
   },
   {
     id: 'perf-1',
@@ -67,7 +84,15 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 42,
     image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80',
-    description: 'A captivating blend of royal French jasmine, warm golden amber, and soft velvety bourbon vanilla.'
+    description: 'A captivating blend of royal French jasmine, warm golden amber, and soft velvety bourbon vanilla.',
+    inStock: 5,
+    badge: 'Signature Scent',
+    specs: ['Concentration: Eau de Parfum (22% oil)', 'Origin: Grasse, France', 'Atomizer: Micro-fine golden mist', 'Silage: Heavy radiating trail'],
+    notes: {
+      top: 'Royal French Jasmine & Pear Blossom',
+      heart: 'Golden Honeycomb & Solar Amber',
+      base: 'Madagascar Bourbon Vanilla & Cashmere Wood'
+    }
   },
   {
     id: 'perf-2',
@@ -80,7 +105,15 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 31,
     image: 'https://images.unsplash.com/photo-1594035910387-fea081ae7aeb?auto=format&fit=crop&w=800&q=80',
-    description: 'Creamy sandalwood layered with dewy Damascus rose petals for all-day captivating silage.'
+    description: 'Creamy sandalwood layered with dewy Damascus rose petals for all-day captivating silage.',
+    inStock: 7,
+    badge: 'Romantic',
+    specs: ['Fine Fragrance Mist & Body Elixir', 'Hydrating Aloe & Rose Essence', 'Volume: 100ml Glass Spray Flacon', 'Lasting Power: 12+ Hours'],
+    notes: {
+      top: 'Dewy Damascus Rose & Lychee',
+      heart: 'Creamy Australian Sandalwood',
+      base: 'White Musk & Warm Benzoin'
+    }
   },
   {
     id: 'perf-3',
@@ -93,7 +126,15 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 54,
     image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80',
-    description: 'Pure alcohol-free concentrated oil perfume blending Cambodian agarwood, Madagascar vanilla, and warm saffron for 24hr+ longevity.'
+    description: 'Pure alcohol-free concentrated oil perfume blending Cambodian agarwood, Madagascar vanilla, and warm saffron for 24hr+ longevity.',
+    inStock: 4,
+    badge: '100% Pure Oil',
+    specs: ['100% Pure Oil (Zero Alcohol)', 'Glass Wand Dropper Applicator', 'Volume: 12ml Concentrated Attar', 'Lasting Power: 24+ Hours'],
+    notes: {
+      top: 'Persian Saffron & Spiced Cardamom',
+      heart: 'Cambodian Royal Agarwood (Oud)',
+      base: 'Golden Amber & Smoked Madagascar Vanilla'
+    }
   },
   {
     id: 'perf-4',
@@ -106,7 +147,15 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 38,
     image: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=800&q=80',
-    description: 'Silky rollerball perfume elixir featuring powdery Egyptian white musk, warm coconut nectar, and caramelized Tahitian vanilla.'
+    description: 'Silky rollerball perfume elixir featuring powdery Egyptian white musk, warm coconut nectar, and caramelized Tahitian vanilla.',
+    inStock: 8,
+    badge: 'Pocket Luxury',
+    specs: ['Stainless Steel Rollerball Applicator', 'Infused with Jojoba Skin-Softening Oil', 'Volume: 10ml Travel Size', 'Non-greasy rapid skin absorption'],
+    notes: {
+      top: 'Sweet Coconut Nectar & Almond Milk',
+      heart: 'Warm Caramelized Tahitian Vanilla',
+      base: 'Egyptian White Musk & Tonka Bean'
+    }
   },
 
   // Lip Gloss
@@ -121,7 +170,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 56,
     image: 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=800&q=80',
-    description: 'Glass-finish cushion gloss infused with hyaluronic acid, organic jojoba oil, and micro-fine shimmer.'
+    description: 'Glass-finish cushion gloss infused with hyaluronic acid, organic jojoba oil, and micro-fine shimmer.',
+    inStock: 9,
+    badge: 'High Shine',
+    specs: ['Hyaluronic Filling Spheres', 'Organic Jojoba & Vitamin E', 'Non-sticky cushion applicator', 'Plumping botanical cooling complex']
   },
   {
     id: 'lip-2',
@@ -134,7 +186,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviews: 23,
     image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80',
-    description: 'Deeply conditioning non-sticky lip elixir delivering intense moisture and a natural radiant tint.'
+    description: 'Deeply conditioning non-sticky lip elixir delivering intense moisture and a natural radiant tint.',
+    inStock: 12,
+    badge: 'Hydrating',
+    specs: ['Rosehip & Camellia Seed Oil', 'Color-adapting pH tint', 'Ultra-soft jumbo doe foot wand', 'Repairs dry & chapped lips']
   },
 
   // Hijabs & Hair Scarves
@@ -149,7 +204,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 47,
     image: 'https://images.unsplash.com/photo-1590003551476-1a3e3aff1a57?auto=format&fit=crop&w=800&q=80',
-    description: 'Featherlight, breathable modal silk blend. Drapes effortlessly without slipping, wrinkle resistant.'
+    description: 'Featherlight, breathable modal silk blend. Drapes effortlessly without slipping, wrinkle resistant.',
+    inStock: 7,
+    badge: 'Customer Fav',
+    specs: ['80% Micro-Modal, 20% Mulberry Silk', 'Dimensions: 195cm x 75cm', 'Non-slip breathable weave', 'Machine washable on gentle cycle']
   },
   {
     id: 'hijab-2',
@@ -162,7 +220,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 35,
     image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=80',
-    description: 'Flowy, non-opaque textured chiffon scarf in a flattering neutral mocha shade for refined styling.'
+    description: 'Flowy, non-opaque textured chiffon scarf in a flattering neutral mocha shade for refined styling.',
+    inStock: 10,
+    badge: 'Everyday Chic',
+    specs: ['Textured Crepe Bubble Chiffon', 'Dimensions: 185cm x 70cm', 'Opaque when folded', 'Pins not strictly required']
   },
   {
     id: 'hijab-3',
@@ -175,7 +236,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 29,
     image: 'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80',
-    description: '100% pure mulberry silk square hair scarf. Protects hair follicles from friction, locks in natural moisture, and styles effortlessly.'
+    description: '100% pure mulberry silk square hair scarf. Protects hair follicles from friction, locks in natural moisture, and styles effortlessly.',
+    inStock: 4,
+    badge: 'Pure Silk',
+    specs: ['100% Pure Mulberry Silk (19 Momme)', 'Dimensions: 70cm x 70cm Square', 'Protects edges & prevents bedhead frizz', 'Hand-rolled edges']
   },
   {
     id: 'hijab-4',
@@ -188,7 +252,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 18,
     image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
-    description: 'Versatile glossy twill ribbon scarf for chic ponytails, hair buns, neck ties, or luxury handbag adornment.'
+    description: 'Versatile glossy twill ribbon scarf for chic ponytails, hair buns, neck ties, or luxury handbag adornment.',
+    inStock: 6,
+    badge: 'Versatile',
+    specs: ['Silky Double-Sided Twill', 'Dimensions: 95cm x 6cm', 'Gold foil monogram accents', 'Multi-wear accessory']
   },
 
   // Skincare (CeraVe & Botanicals)
@@ -203,7 +270,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 39,
     image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80',
-    description: 'Cold-pressed organic rosehip seed oil infused with active Vitamin C for a luminous, healthy complexion.'
+    description: 'Cold-pressed organic rosehip seed oil infused with active Vitamin C for a luminous, healthy complexion.',
+    inStock: 5,
+    badge: 'Organic',
+    specs: ['100% Cold-Pressed Organic Rosehip', 'Active Tetrahexyldecyl Ascorbate (Vit C)', 'Volume: 30ml UV-Protected Glass Dropper', 'Brightens dark spots & evens tone']
   },
   {
     id: 'skin-2',
@@ -216,7 +286,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviews: 27,
     image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80',
-    description: '100% pure organic Bulgarian rosewater mist that instantly calms redness, balances pH, and refreshes skin.'
+    description: '100% pure organic Bulgarian rosewater mist that instantly calms redness, balances pH, and refreshes skin.',
+    inStock: 8,
+    badge: 'Balancing',
+    specs: ['100% Organic Bulgarian Damask Rosewater', 'Alcohol & Fragrance Free', 'Volume: 120ml Spray Bottle', 'Sets makeup & hydrates midday']
   },
   {
     id: 'skin-3',
@@ -229,7 +302,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 84,
     image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80',
-    description: 'Authentic CeraVe daily hydrating wash with 3 essential ceramides and hyaluronic acid to cleanse without disrupting skin barrier.'
+    description: 'Authentic CeraVe daily hydrating wash with 3 essential ceramides and hyaluronic acid to cleanse without disrupting skin barrier.',
+    inStock: 6,
+    badge: '100% Authentic US',
+    specs: ['Formula with Ceramides 1, 3, 6-II', 'Non-foaming lotion cleanser', 'Volume: 473ml Large Pump Bottle', 'Accepted by National Eczema Assoc.']
   },
   {
     id: 'skin-4',
@@ -242,7 +318,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 67,
     image: 'https://images.unsplash.com/photo-1608248597359-54d6a457497d?auto=format&fit=crop&w=800&q=80',
-    description: 'Rich, non-comedogenic barrier restoration cream with patented MVE delivery technology for all-day deep hydration.'
+    description: 'Rich, non-comedogenic barrier restoration cream with patented MVE delivery technology for all-day deep hydration.',
+    inStock: 5,
+    badge: '100% Authentic US',
+    specs: ['Rich barrier restoration cream', 'Patented MVE 24-hr controlled release', 'Weight: 454g (16 oz) Tub', 'Fragrance-free & non-greasy']
   },
   {
     id: 'skin-5',
@@ -255,7 +334,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviews: 45,
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
-    description: 'Lightweight, oil-free daily moisturizer formulated with ceramides & hyaluronic acid for silky smooth, hydrated skin.'
+    description: 'Lightweight, oil-free daily moisturizer formulated with ceramides & hyaluronic acid for silky smooth, hydrated skin.',
+    inStock: 7,
+    badge: '100% Authentic US',
+    specs: ['Lightweight oil-free formulation', 'Non-comedogenic & gentle on sensitive skin', 'Volume: 355ml Pump Bottle', 'Dermatologist recommended worldwide']
   },
 
   // Packages
@@ -270,7 +352,10 @@ export const PRODUCTS: Product[] = [
     rating: 5,
     reviews: 64,
     image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80',
-    description: 'Curated luxury collection including Jasmin D\'Or 50ml, Aura Glow Lip Gloss, Silk Modal Scarf, and gold jewelry keepsake box.'
+    description: 'Curated luxury collection including Jasmin D\'Or 50ml, Aura Glow Lip Gloss, Silk Modal Scarf, and gold jewelry keepsake box.',
+    inStock: 3,
+    badge: 'VIP Hamper',
+    specs: ['Jasmin D\'Or 50ml EDP', 'Aura Glow Plumping Lip Gloss', 'Silk Modal Scarf (Champagne Rose)', 'Luxury rigid keepsake gift box with satin ribbon']
   },
   {
     id: 'pkg-2',
@@ -283,7 +368,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 41,
     image: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=800&q=80',
-    description: 'Self-care ritual hamper featuring Botanical Lip Oil, Rosewater Mist, and 18K Gold Huggie Earrings.'
+    description: 'Self-care ritual hamper featuring Botanical Lip Oil, Rosewater Mist, and 18K Gold Huggie Earrings.',
+    inStock: 4,
+    badge: 'Gift Set',
+    specs: ['Botanical Lip Oil 10ml', 'Bulgarian Rosewater Mist 120ml', 'Soleste 18K Gold Huggie Earrings', 'Signature embossed gift packaging']
   }
 ];
 
@@ -298,5 +386,8 @@ export const SPOTLIGHT_BUNDLE: Product = {
   rating: 5,
   reviews: 73,
   image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80',
-  description: 'Includes Hydrating Lip Gloss, Silk Modal Hijab & Golden Pearl Pendant in deluxe signature packaging.'
+  description: 'Includes Hydrating Lip Gloss, Silk Modal Hijab & Golden Pearl Pendant in deluxe signature packaging.',
+  inStock: 5,
+  badge: 'Limited Edition',
+  specs: ['Aura Glow Lip Gloss', 'Luxe Modal Silk Scarf', 'Aurelia 18K Pearl Pendant', 'Deluxe Keepsake Box']
 };

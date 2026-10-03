@@ -8,7 +8,9 @@ import {
   Heart, 
   ShieldCheck, 
   Tag, 
-  MessageCircle 
+  MessageCircle,
+  Truck,
+  Gift
 } from 'lucide-react';
 
 interface SideMenuProps {
@@ -16,6 +18,10 @@ interface SideMenuProps {
   onClose: () => void;
   onOpenCart: () => void;
   cartCount: number;
+  wishlistCount: number;
+  onOpenWishlist: () => void;
+  onOpenTracking: () => void;
+  onOpenVipClub: () => void;
   onNavigate: (sectionId: string) => void;
 }
 
@@ -24,6 +30,10 @@ export const SideMenu: React.FC<SideMenuProps> = ({
   onClose,
   onOpenCart,
   cartCount,
+  wishlistCount,
+  onOpenWishlist,
+  onOpenTracking,
+  onOpenVipClub,
   onNavigate
 }) => {
   return (
@@ -112,6 +122,82 @@ export const SideMenu: React.FC<SideMenuProps> = ({
                   {cartCount}
                 </span>
               )}
+            </button>
+          </li>
+
+          <li>
+            <button 
+              onClick={() => { onClose(); onOpenWishlist(); }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 14,
+                width: '100%',
+                padding: '13px 16px',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--color-obsidian)',
+                fontWeight: 600,
+                fontSize: '0.94rem',
+                textAlign: 'left'
+              }}
+            >
+              <Heart size={18} color="var(--color-rose)" />
+              <span>My Wishlist</span>
+              {wishlistCount > 0 && (
+                <span style={{
+                  marginLeft: 'auto',
+                  background: 'var(--color-rose)',
+                  color: '#fff',
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  padding: '2px 8px',
+                  borderRadius: 'var(--radius-full)'
+                }}>
+                  {wishlistCount}
+                </span>
+              )}
+            </button>
+          </li>
+
+          <li>
+            <button 
+              onClick={() => { onClose(); onOpenTracking(); }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 14,
+                width: '100%',
+                padding: '13px 16px',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--color-obsidian)',
+                fontWeight: 600,
+                fontSize: '0.94rem',
+                textAlign: 'left'
+              }}
+            >
+              <Truck size={18} color="var(--color-champagne-dark)" />
+              <span>Track Your Order</span>
+            </button>
+          </li>
+
+          <li>
+            <button 
+              onClick={() => { onClose(); onOpenVipClub(); }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 14,
+                width: '100%',
+                padding: '13px 16px',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--color-obsidian)',
+                fontWeight: 600,
+                fontSize: '0.94rem',
+                textAlign: 'left'
+              }}
+            >
+              <Gift size={18} color="var(--color-champagne-dark)" />
+              <span>VIP Circle (10% OFF)</span>
             </button>
           </li>
 
