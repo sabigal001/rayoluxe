@@ -1,0 +1,16 @@
+{
+  "name": "Rayo Luxe | Luxury Beauty & Fine Lifestyle",
+  "short_name": "Rayo Luxe",
+  "description": "Discover Rayo Luxe. Curated 18k fine jewelry, French perfumes, concentrated perfume oils, pure silk hair scarves, and authentic CeraVe skincare in Nigeria.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#151312",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

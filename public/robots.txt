@@ -1,0 +1,6 @@
+# Robots.txt for Rayo Luxe
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://rayoluxe.vercel.app/sitemap.xml
