@@ -808,35 +808,81 @@ a {
 
 /* ==========================================================================
    TOAST NOTIFICATIONS
+   Ultra-compact luxury floating pill, anchored to top center
    ========================================================================== */
 .toast-stack {
   position: fixed;
-  top: 90px;
-  right: 24px;
-  z-index: 2000;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   pointer-events: none;
+  width: auto;
+  max-width: calc(100vw - 32px);
 }
 
 .toast-item {
   pointer-events: auto;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 20px;
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--color-champagne);
-  font-size: 0.88rem;
-  font-weight: 500;
-  min-width: 280px;
-  animation: slideToast 0.3s var(--ease-spring);
+  gap: 8px;
+  padding: 6px 14px 6px 9px;
+  border-radius: 9999px;
+  background: rgba(18, 16, 15, 0.94);
+  color: #FAF7F2;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  width: fit-content;
+  max-width: 90vw;
+  animation: toastPillIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes slideToast {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
+.toast-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.toast-icon-wrap.success {
+  background: rgba(46, 125, 82, 0.28);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.35);
+}
+
+.toast-icon-wrap.info {
+  background: rgba(200, 155, 95, 0.25);
+  color: #E2BC82;
+  border: 1px solid rgba(226, 188, 130, 0.35);
+}
+
+.toast-text {
+  font-size: 0.81rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #FAF7F2;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+@keyframes toastPillIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* ==========================================================================

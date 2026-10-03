@@ -39,11 +39,11 @@ export const Discounts: React.FC<DiscountsProps> = ({
     navigator.clipboard.writeText(code).then(() => {
       setCopied(true);
       onApplyCoupon(code);
-      onShowToast('Promo code RAYOLUXE15 copied & applied to your bag!', 'success');
+      onShowToast('Code copied & applied', 'success');
       setTimeout(() => setCopied(false), 2500);
     }).catch(() => {
       onApplyCoupon(code);
-      onShowToast('Promo code RAYOLUXE15 applied to your bag!', 'success');
+      onShowToast('Code applied', 'success');
     });
   };
 

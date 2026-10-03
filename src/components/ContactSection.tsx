@@ -15,7 +15,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onShowToast }) =
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onShowToast(`Thank you, ${formData.name}! Your message has been sent. We will reply shortly.`, 'success');
+    onShowToast('Message sent', 'success');
     setFormData({ name: '', email: '', topic: 'Product Enquiry', message: '' });
   };
 

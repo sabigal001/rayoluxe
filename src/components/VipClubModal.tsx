@@ -23,17 +23,17 @@ export const VipClubModal: React.FC<VipClubModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes('@')) {
-      onShowToast('Please enter a valid email address.', 'info');
+      onShowToast('Please enter your email', 'info');
       return;
     }
     setUnlocked(true);
-    onShowToast('Welcome to the Rayo Luxe VIP Circle! Code unlocked.', 'success');
+    onShowToast('VIP discount unlocked', 'success');
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText('RAYOVIP10');
     setCopied(true);
-    onShowToast('VIP Code RAYOVIP10 copied to clipboard!', 'success');
+    onShowToast('Code copied', 'success');
     setTimeout(() => setCopied(false), 2500);
   };
 

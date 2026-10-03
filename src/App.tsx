@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Check, Info } from 'lucide-react';
 import { PRODUCTS } from './data/products';
 import { Product, ProductCategory, CartItem, ToastNotification, OrderDetails } from './types';
 
@@ -116,7 +117,7 @@ export const App: React.FC = () => {
 
     setTimeout(() => {
       setToasts(prev => prev.filter(t => t.id !== id));
-    }, 3200);
+    }, 2200);
   };
 
   // Cart Operations
@@ -137,7 +138,7 @@ export const App: React.FC = () => {
       }];
     });
 
-    showToast(`Added "${product.name}" to your shopping bag!`, 'success');
+    showToast('Added to bag', 'success');
   };
 
   const handleBuyNow = (product: Product) => {
@@ -157,7 +158,7 @@ export const App: React.FC = () => {
     const item = cart.find(i => i.id === id);
     setCart(prev => prev.filter(i => i.id !== id));
     if (item) {
-      showToast(`Removed "${item.name}" from your bag.`, 'info');
+      showToast('Removed from bag', 'info');
     }
   };
 
@@ -170,21 +171,21 @@ export const App: React.FC = () => {
     const exists = isProductWishlisted(product.id);
     if (exists) {
       setWishlist(prev => prev.filter(item => item.id !== product.id));
-      showToast(`Removed "${product.name}" from your wishlist.`, 'info');
+      showToast('Removed from wishlist', 'info');
     } else {
       setWishlist(prev => [...prev, product]);
-      showToast(`Saved "${product.name}" to your wishlist!`, 'success');
+      showToast('Saved to wishlist', 'success');
     }
   };
 
   const handleRemoveFromWishlist = (product: Product) => {
     setWishlist(prev => prev.filter(item => item.id !== product.id));
-    showToast(`Removed "${product.name}" from your wishlist.`, 'info');
+    showToast('Removed from wishlist', 'info');
   };
 
   const handleClearWishlist = () => {
     setWishlist([]);
-    showToast('Your wishlist has been cleared.', 'info');
+    showToast('Wishlist cleared', 'info');
   };
 
   // Coupon application
@@ -192,13 +193,13 @@ export const App: React.FC = () => {
     const normalized = code.toUpperCase().trim();
     if (normalized === 'RAYOLUXE15') {
       setDiscountPercent(0.15);
-      showToast('Promo code RAYOLUXE15 applied! (15% OFF)', 'success');
+      showToast('15% discount applied', 'success');
     } else if (normalized === 'RAYOVIP10') {
       setDiscountPercent(0.10);
-      showToast('VIP Voucher RAYOVIP10 applied! (10% OFF)', 'success');
+      showToast('10% discount applied', 'success');
     } else {
       setDiscountPercent(0);
-      showToast('Invalid promo code. Use RAYOLUXE15 or RAYOVIP10.', 'info');
+      showToast('Invalid promo code', 'info');
     }
   };
 
@@ -233,7 +234,7 @@ export const App: React.FC = () => {
 
     setIsCheckoutOpen(false);
     setCart([]);
-    showToast('Thank you! Redirecting to WhatsApp for confirmation...', 'success');
+    showToast('Connecting to WhatsApp...', 'success');
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -256,11 +257,17 @@ export const App: React.FC = () => {
     <div className="app-layout">
       
       {/* Toast Notifications */}
-      <div className="toast-stack">
+      <div className="toast-stack" aria-live="polite" aria-atomic="true">
         {toasts.map(toast => (
-          <div key={toast.id} className="toast-item liquid-glass-heavy">
-            <span>{toast.type === 'success' ? '✓' : '•'}</span>
-            <span>{toast.message}</span>
+          <div key={toast.id} className="toast-item">
+            <span className={`toast-icon-wrap ${toast.type}`}>
+              {toast.type === 'success' ? (
+                <Check size={13} strokeWidth={2.75} />
+              ) : (
+                <Info size={13} strokeWidth={2.75} />
+              )}
+            </span>
+            <span className="toast-text">{toast.message}</span>
           </div>
         ))}
       </div>
