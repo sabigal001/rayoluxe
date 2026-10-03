@@ -1,0 +1,1072 @@
+/* ==========================================================================
+   RAYO LUXE — LIQUID FROSTED GLASS LUXURY DESIGN SYSTEM
+   Palette: Alabaster Cashmere, Champagne Gold Leaf, Muted French Rose, Obsidian Espresso
+   Zero Emojis • Vector Icons • Liquid Translucency • Responsive Polish
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Surfaces & Frosted Glass */
+  --bg-canvas: #FAF7F2;
+  --bg-surface: #F4EFEB;
+  --bg-card: rgba(255, 255, 255, 0.78);
+  --bg-card-hover: rgba(255, 255, 255, 0.92);
+  --bg-glass-heavy: rgba(250, 247, 242, 0.85);
+  
+  /* Glass Borders & Specular Reflections */
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-border-subtle: rgba(197, 160, 89, 0.18);
+  --glass-inner-light: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 12px 36px -4px rgba(21, 19, 18, 0.06), 0 2px 8px rgba(21, 19, 18, 0.03);
+  --glass-shadow-hover: 0 20px 48px -6px rgba(21, 19, 18, 0.12), 0 4px 12px rgba(21, 19, 18, 0.05);
+
+  /* Refined Luxury Palette */
+  --color-obsidian: #151312;
+  --color-charcoal: #2A2624;
+  --color-stone: #6B635D;
+  --color-stone-light: #9C948D;
+  
+  --color-champagne: #C5A059;
+  --color-champagne-light: #E8D3A7;
+  --color-champagne-dark: #9E7B35;
+  
+  --color-rose: #B98375;
+  --color-rose-soft: #F6EDE9;
+  --color-rose-dark: #915E51;
+
+  --color-whatsapp: #1EBE5D;
+  --color-whatsapp-dark: #169E4B;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-full: 9999px;
+
+  /* Timing */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-spring);
+  --transition-normal: 0.35s var(--ease-spring);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--color-obsidian);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(232, 211, 167, 0.1) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(185, 131, 117, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Liquid Frosted Glass Utility */
+.liquid-glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-light), var(--glass-shadow);
+  transition: all var(--transition-normal);
+}
+
+.liquid-glass-heavy {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-light), var(--glass-shadow);
+}
+
+.liquid-glass:hover {
+  background: var(--bg-card-hover);
+  box-shadow: var(--glass-inner-light), var(--glass-shadow-hover);
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px auto;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-champagne-dark);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-obsidian);
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.section-desc {
+  font-size: 1.02rem;
+  color: var(--color-stone);
+  font-weight: 400;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 13px 26px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-obsidian);
+  color: #FAF7F2;
+  box-shadow: 0 6px 20px rgba(21, 19, 18, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--color-champagne-dark);
+  color: #FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(158, 123, 53, 0.3);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  color: var(--color-obsidian);
+  box-shadow: var(--glass-inner-light), var(--glass-shadow);
+}
+
+.btn-glass:hover {
+  background: #FFF;
+  border-color: var(--color-champagne);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: #FFF;
+  box-shadow: 0 6px 20px rgba(30, 190, 93, 0.28);
+}
+
+.btn-whatsapp:hover {
+  background: var(--color-whatsapp-dark);
+  transform: translateY(-2px);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   ANNOUNCEMENT BAR — INFINITE CONTINUOUS MARQUEE (moving text above header)
+   ========================================================================== */
+.announcement-bar {
+  background: var(--color-obsidian);
+  color: #FAF7F2;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 9px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 101;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  white-space: nowrap;
+}
+
+.announcement-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 36px;
+  animation: announcementMarquee 26s linear infinite;
+  will-change: transform;
+}
+
+.announcement-bar:hover .announcement-track {
+  animation-play-state: paused;
+}
+
+@keyframes announcementMarquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.announcement-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.announcement-item strong {
+  color: var(--color-champagne-light);
+  letter-spacing: 0.12em;
+}
+
+.announcement-dot {
+  opacity: 0.35;
+  color: var(--color-champagne);
+}
+
+/* ==========================================================================
+   STICKY HEADER
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all var(--transition-fast);
+}
+
+.header-container {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-obsidian);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.brand-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.38em;
+  color: var(--color-stone);
+  text-transform: uppercase;
+  margin-top: 4px;
+  display: block;
+}
+
+.icon-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-obsidian);
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-champagne-dark);
+  transform: translateY(-1px);
+}
+
+.cart-badge {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  background: var(--color-rose);
+  color: #FFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* ==========================================================================
+   HERO SECTION — Classic background with image crossfade transitions
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 90px 24px;
+  overflow: hidden;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  will-change: opacity;
+}
+
+.hero-bg-image.active {
+  opacity: 1;
+}
+
+.hero-backdrop-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 247, 242, 0.55) 0%,
+    rgba(250, 247, 242, 0.72) 40%,
+    rgba(250, 247, 242, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--glass-border-subtle);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-champagne-dark);
+  margin-bottom: 24px;
+  box-shadow: var(--glass-shadow);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-obsidian);
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--color-stone);
+  max-width: 620px;
+  margin: 0 auto 36px auto;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.hero-trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(220, 215, 208, 0.6);
+  padding-top: 28px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+/* ==========================================================================
+   COLLECTIONS GRID
+   ========================================================================== */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.collection-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-img-box {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.collection-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-spring);
+}
+
+.collection-card:hover .collection-img-box img {
+  transform: scale(1.06);
+}
+
+.collection-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-obsidian);
+}
+
+.collection-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.collection-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.collection-text {
+  font-size: 0.92rem;
+  color: var(--color-stone);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* ==========================================================================
+   PRODUCTS GRID
+   ========================================================================== */
+.products-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-tab {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-stone);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-fast);
+}
+
+.filter-tab.active {
+  background: var(--color-obsidian);
+  color: #FAF7F2;
+  border-color: var(--color-obsidian);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-img-box {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.product-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-spring);
+}
+
+.product-card:hover .product-img-box img {
+  transform: scale(1.05);
+}
+
+.product-discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-rose);
+  color: #FFF;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.product-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-cat-name {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-champagne-dark);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-obsidian);
+  margin-bottom: 6px;
+}
+
+.product-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--color-champagne);
+  margin-bottom: 12px;
+}
+
+.product-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 18px;
+  margin-top: auto;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.product-old-price {
+  font-size: 0.9rem;
+  color: var(--color-stone-light);
+  text-decoration: line-through;
+}
+
+.product-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-add-bag {
+  padding: 9px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--glass-border);
+  color: var(--color-obsidian);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.btn-add-bag:hover {
+  background: var(--color-obsidian);
+  color: #FFF;
+}
+
+.btn-buy-now {
+  padding: 9px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--color-rose);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.btn-buy-now:hover {
+  background: var(--color-rose-dark);
+}
+
+/* ==========================================================================
+   SIDE DRAWERS (Left and Right)
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 19, 18, 0.45);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer-panel-left {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 85%;
+  max-width: 360px;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-panel-left.active {
+  transform: translateX(0);
+}
+
+.drawer-panel-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  max-width: 440px;
+  z-index: 1001;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-panel-right.active {
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   MODALS
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 19, 18, 0.55);
+  backdrop-filter: blur(8px);
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATIONS
+   ========================================================================== */
+.toast-stack {
+  position: fixed;
+  top: 90px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast-item {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-champagne);
+  font-size: 0.88rem;
+  font-weight: 500;
+  min-width: 280px;
+  animation: slideToast 0.3s var(--ease-spring);
+}
+
+@keyframes slideToast {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ==========================================================================
+   FLOATING WIDGETS — ORBITAL PLANET DESIGN
+   Both AI (top-right) and WhatsApp (bottom-left) use rotating rings & dots
+   ========================================================================== */
+
+/* --- Orbital Container Shared --- */
+.orbital-whatsapp,
+.floating-ai {
+  position: fixed;
+  z-index: 99;
+}
+
+.orbital-whatsapp {
+  bottom: 28px;
+  left: 28px;
+}
+
+.floating-ai {
+  top: 120px;
+  right: 28px;
+}
+
+/* --- Orbital Rings --- */
+.orbital-whatsapp .orbital-ring,
+.floating-ai .orbital-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  pointer-events: none;
+}
+
+/* Ring 1: Inner orbit */
+.orbital-whatsapp .orbital-ring-1 {
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: rgba(30, 190, 93, 0.2);
+  animation: orbitSpin 10s linear infinite;
+}
+
+.floating-ai .orbital-ring-1 {
+  width: 90px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: rgba(197, 160, 89, 0.2);
+  animation: orbitSpin 10s linear infinite;
+}
+
+/* Ring 2: Outer orbit */
+.orbital-whatsapp .orbital-ring-2 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: rgba(30, 190, 93, 0.1);
+  border-style: dashed;
+  animation: orbitSpinReverse 14s linear infinite;
+}
+
+.floating-ai .orbital-ring-2 {
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-color: rgba(197, 160, 89, 0.1);
+  border-style: dashed;
+  animation: orbitSpinReverse 14s linear infinite;
+}
+
+/* --- Orbital Dots (tiny satellites) --- */
+.orbital-whatsapp .orbital-dot,
+.floating-ai .orbital-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* WhatsApp dots - green */
+.orbital-whatsapp .orbital-dot-1 {
+  background: rgba(30, 190, 93, 0.6);
+  animation: orbitDot1 8s linear infinite;
+}
+.orbital-whatsapp .orbital-dot-2 {
+  background: rgba(30, 190, 93, 0.35);
+  width: 4px;
+  height: 4px;
+  animation: orbitDot2 12s linear infinite;
+}
+.orbital-whatsapp .orbital-dot-3 {
+  background: rgba(30, 190, 93, 0.5);
+  width: 3px;
+  height: 3px;
+  animation: orbitDot3 6s linear infinite;
+}
+
+/* AI dots - champagne */
+.floating-ai .orbital-dot-1 {
+  background: rgba(197, 160, 89, 0.6);
+  animation: orbitDot1 8s linear infinite;
+}
+.floating-ai .orbital-dot-2 {
+  background: rgba(197, 160, 89, 0.35);
+  width: 4px;
+  height: 4px;
+  animation: orbitDot2 12s linear infinite;
+}
+.floating-ai .orbital-dot-3 {
+  background: rgba(197, 160, 89, 0.5);
+  width: 3px;
+  height: 3px;
+  animation: orbitDot3 6s linear infinite;
+}
+
+/* Orbital keyframes */
+@keyframes orbitSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes orbitDot1 {
+  0% { top: -8px; left: 25px; }
+  25% { top: 25px; left: 55px; }
+  50% { top: 58px; left: 25px; }
+  75% { top: 25px; left: -8px; }
+  100% { top: -8px; left: 25px; }
+}
+
+@keyframes orbitDot2 {
+  0% { top: 58px; left: -14px; }
+  25% { top: -14px; left: 10px; }
+  50% { top: -10px; left: 62px; }
+  75% { top: 62px; left: 58px; }
+  100% { top: 58px; left: -14px; }
+}
+
+@keyframes orbitDot3 {
+  0% { top: 30px; left: -16px; }
+  25% { top: -12px; left: 30px; }
+  50% { top: 30px; left: 66px; }
+  75% { top: 66px; left: 30px; }
+  100% { top: 30px; left: -16px; }
+}
+
+/* --- WhatsApp FAB Button --- */
+.floating-whatsapp {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  background: var(--color-whatsapp);
+  color: #FFF;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(30, 190, 93, 0.35);
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.08) translateY(-2px);
+  background: var(--color-whatsapp-dark);
+}
+
+/* --- AI FAB Button --- */
+.ai-toggle-btn {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-full);
+  background: var(--color-obsidian);
+  color: #FAF7F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: 0 8px 24px rgba(21, 19, 18, 0.3);
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.ai-toggle-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE RULES
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 16px;
+    min-height: 75vh;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .product-details {
+    padding: 12px;
+  }
+  .product-buttons {
+    grid-template-columns: 1fr;
+  }
+  .floating-whatsapp, .ai-toggle-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .orbital-whatsapp {
+    bottom: 20px;
+    left: 20px;
+  }
+  .floating-ai {
+    top: 100px;
+    right: 20px;
+  }
+  .drawer-panel-right {
+    width: 100%;
+  }
+  
+  /* Smaller orbital rings on mobile */
+  .orbital-whatsapp .orbital-ring-1,
+  .floating-ai .orbital-ring-1 {
+    width: 76px;
+    height: 76px;
+  }
+  .orbital-whatsapp .orbital-ring-2,
+  .floating-ai .orbital-ring-2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
